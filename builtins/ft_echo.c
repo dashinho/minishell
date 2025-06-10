@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:25:49 by mohben-t          #+#    #+#             */
-/*   Updated: 2025/05/26 12:02:00 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:49:37 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ft_echo(t_node *cmd)
     int i;
     
     i = 0;
-    cmd->echo_info = malloc(sizeof(t_echo));
+    cmd->echo_info = ft_malloc(sizeof(t_echo),'A');
     if (!cmd->echo_info)
         return(1);
     echo_has_new_line(cmd);

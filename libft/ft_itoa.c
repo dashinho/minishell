@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohel-kh <mohel-kh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:29:57 by mohel-kh          #+#    #+#             */
-/*   Updated: 2024/11/04 15:49:18 by mohel-kh         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:49:51 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 
 	num = (long)n;
 	len = long_len(num);
-	tmp = malloc(len + 1);
+	tmp = ft_malloc(len + 1,'A');
 	if (!tmp)
 		return (NULL);
 	tmp[len] = '\0';

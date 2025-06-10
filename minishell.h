@@ -16,7 +16,9 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 extern int	g_es;
+extern t_list *test;
 #endif
+
 
 typedef struct s_redi
 {
@@ -146,13 +148,13 @@ void echo_has_new_line(t_node *cmd);
 void join_args(t_node *cmd);
 int valide_key(t_export *info);
 int builtin_requires_parent(t_node *cmd);
-void envp_dup(t_env *cmd, char **envp);
+//void envp_dup(t_env *cmd, char **envp);
+t_env *envp_dup(char **envp);
 char **realloc_env(char **old_env, int old_size, int new_size);
 void func_print(char **envp);
 void    ft_all(t_node **all_cmd, char *line, char **s_line,t_env *info); //5aliha hna
 void signal_setup();
 void free_split(char **split);
-void *ft_malloc(size_t size,char flag);
 int	is_all_whitespace(const char *str);
 
 #endif

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_space.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 21:30:33 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/06/10 14:49:01 by mohben-t         ###   ########.fr       */
+/*   Created: 2025/05/28 20:43:27 by mohel-kh          #+#    #+#             */
+/*   Updated: 2025/06/10 12:50:40 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_word_len(const char *s, char sep)
+static int	get_word_len(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] && s[i] != sep)
+	while (s[i] && !(s[i] == 32 || (s[i] >= 9 && s[i] <= 13)))
 	{
 		if (is_quote(s[i]))
 			i = skip_quote(s, i);
@@ -27,7 +27,7 @@ static int	get_word_len(const char *s, char sep)
 	return (i);
 }
 
-static int	count_words(const char *s, char sep)
+static int	count_words(const char *s)
 {
 	int	i;
 	int	count;
@@ -36,12 +36,12 @@ static int	count_words(const char *s, char sep)
 	count = 0;
 	while (s[i])
 	{
-		while (s[i] == sep)
+		while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
 			i++;
 		if (!s[i])
 			break ;
 		count++;
-		i += get_word_len(&s[i], sep);
+		i += get_word_len(&s[i]);
 	}
 	return (count);
 }
@@ -83,7 +83,7 @@ static void	*free_all(char **arr, int count)
 	return (NULL);
 }
 
-char	**ft_split(const char *s, char sep)
+char	**ft_split_space(const char *s)
 {
 	char	**res;
 
@@ -92,22 +92,19 @@ char	**ft_split(const char *s, char sep)
 	j = 0;
 	if (!s)
 		return (NULL);
-	res = ft_malloc(sizeof(char *) * (count_words(s, sep) + 1),'A');
+	res = ft_malloc(sizeof(char *) * (count_words(s) + 1),'A');
 	if (!res)
 		return (NULL);
 	while (s[i])
 	{
-		while (s[i] == sep)
+		while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
 			i++;
 		if (!s[i])
 			break ;
-		len = get_word_len(&s[i], sep);
+		len = get_word_len(&s[i]);
 		res[j] = copy_word(&s[i], len);
 		if (!res[j])
-		{
-			printf("d\n");	
 			return (free_all(res, j));
-		}
 		i += len;
 		j++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 17:38:37 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/05/26 12:00:20 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:52:28 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ char	*qoute_remov(char *line, char q, int i, int l)
 {
 	char *new_line;
 
-	new_line = malloc(sizeof(char) * (ft_strlen(line) + 1));
+	new_line = ft_malloc(sizeof(char) * (ft_strlen(line) + 1),'A');
 	while (line[i])
 	{
 		if (line[i] == '\'' || line[i] == '\"')

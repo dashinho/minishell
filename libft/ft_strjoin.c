@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 09:05:39 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/05/26 12:00:55 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:51:25 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	str = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	str = ft_malloc(sizeof(char) * (s1_len + s2_len + 1),'A');
 	if (!str)
 		return (NULL);
 	while (s1[i])

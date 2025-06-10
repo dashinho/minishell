@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 17:39:00 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/05/26 12:00:40 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:52:07 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	lexer(t_node **all_cmd, char *s_line, char **p_line)
 	int	cmd_num;
 
 	cmd_num = 0;
-	p_line = ft_split(fix_line(s_line), ' ');
+	p_line = ft_split_space(fix_line(s_line));
 	if (check_redirections(p_line) == 0)
 	{
 		ft_putendl_fd("Dash@Ameed: syntax error near unexpected", 2);
@@ -116,7 +116,7 @@ char	*fix_line(char *line)
 
 	i = 0;
 	l = 0;
-	new_line = malloc(len_forma(line, 0, 0) * sizeof(char));
+	new_line = ft_malloc(len_forma(line, 0, 0) * sizeof(char),'A');
 	if (!new_line)
 		return (NULL);
 	while (line[i])

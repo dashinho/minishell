@@ -6,24 +6,25 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:58:23 by mohben-t          #+#    #+#             */
-/*   Updated: 2025/06/03 16:09:38 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:54:09 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void envp_dup(t_env *cmd, char **envp)
+t_env *envp_dup(char **envp)
 {
 	int i;
 	int env_len;
 	char **str_env;
 
 	env_len = 0;
+	 t_env *cmd = ft_malloc(sizeof(t_env),'A');
 	while (envp[env_len])
 		env_len++;
-	str_env = (char **)malloc((env_len + 1) * sizeof(char *));
+	str_env = (char **)ft_malloc((env_len + 1) * sizeof(char *),'A');
 	if (!str_env)
-		return;
+		return(NULL);
 	i = 0;
 	while (i < env_len)
 	{
@@ -34,11 +35,12 @@ void envp_dup(t_env *cmd, char **envp)
 	cmd->my_envp = str_env;
 	cmd->env_len = env_len;
 	// free(str_env);
+	return (cmd);
 }
 
 char **realloc_env(char **old_env, int old_size, int new_size)
 {
-	char **new_env = malloc((new_size + 1) * sizeof(char *));
+	char **new_env = ft_malloc((new_size + 1) * sizeof(char *),'A');
 	int i = 0;
 
 	if (!new_env)
@@ -187,7 +189,7 @@ int exec_builtins(t_node *cmd,t_env *env)
 	if (is_builtin(cmd) == 1)
 	{
 		if (ft_strcmp(cmd->cmd[0], "cd") == 0)
-				res = ft_cd(cmd,env);
+			res = ft_cd(cmd,env);
 		else if (ft_strcmp(cmd->cmd[0], "echo") == 0)
 			res = ft_echo(cmd);
 		else if (ft_strcmp(cmd->cmd[0], "env") == 0)

@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 17:34:52 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/05/26 12:02:40 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:52:46 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_node	*init_node(int num_cmd)
 {
 	t_node	*new_node;
 
-	new_node = malloc(sizeof(t_node));
+	new_node = ft_malloc(sizeof(t_node),'A');
 	if (!new_node)
 		return (NULL);
-	new_node->cmd = (char **)malloc((sizeof(char *) * (num_cmd + 1)));
+	new_node->cmd = (char **)ft_malloc((sizeof(char *) * (num_cmd + 1)),'A');
 	if (!new_node->cmd)
 		return (NULL);
 	new_node->file = NULL;

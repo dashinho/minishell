@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 17:39:14 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/05/26 12:00:31 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:52:17 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_redi	*creat_file(t_redi *head, char *file_num, char *check)
 
 	if (!file_num)
 		return (NULL);
-	new_redi = malloc(sizeof(t_redi));
+	new_redi = ft_malloc(sizeof(t_redi),'A');
 	if (!new_redi)
 		return (NULL);
 	set_redi_type(new_redi, check);

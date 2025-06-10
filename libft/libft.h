@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:46:23 by mohel-kh          #+#    #+#             */
-/*   Updated: 2025/05/22 09:54:09 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 13:07:02 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@
 typedef	struct	s_list
 {
 	void			*content;
+	int				i;
 	struct s_list	*next;
 }				t_list;
 
 void	ft_putstr(char *str);
+void *ft_malloc(size_t size,char flag);
 t_list	*ft_lstlast(t_list *lst);
 void    ft_lstadd_back(t_list **alst, t_list *new);
 t_list  *ft_lstnew(void *content);
@@ -63,6 +65,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	**ft_split(char const *s, char c);
+char	**ft_split_space(const char *s);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
